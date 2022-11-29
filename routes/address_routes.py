@@ -44,14 +44,14 @@ async def Delete_Data(id):
 
 # Get Request (By Distance in meter)
 @address.get('/v1/api/addressBook/distance')
-async def Get_All_Addresses_By_Distance(longitude: float, latitude: float, distance: int = 1000):
+async def Get_All_Addresses_By_Distance(longitude: float = -73.98241999999999, latitude: float = 40.579505, distance_in_km: int = 5):
 
-    return serializeList(findByDistance(longitude, latitude, distance))
+    return serializeList(findByDistance(longitude, latitude, distance_in_km))
 
 
-# Get Request (By Min and Max length in meter)
+# Get Request (By Min and Max length )
 @address.get('/v1/api/addressBook/advance_distance')
-async def Get_All_Addresses_By_Min_Distance_Max_Distance(longitude: float, latitude: float, max_distance: int, min_distance: int):
+async def Get_All_Addresses_By_Min_Distance_Max_Distance(longitude: float = -73.98241999999999, latitude: float = 40.579505, max_distance: int=10, min_distance: int =2):
     return serializeList(findByDistance(longitude, latitude, max_distance, min_distance))
 
 

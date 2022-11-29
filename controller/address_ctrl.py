@@ -8,8 +8,8 @@ def findByDistance(longitude, latitude, max_distance, min_distance=0):
                     "type": "Point",
                     "coordinates": [longitude, latitude]
                 },
-                "$maxDistance": max_distance,
-                "$minDistance": min_distance
+                "$maxDistance": max_distance*1000,
+                "$minDistance": min_distance*1000
             }
         }
     }))
